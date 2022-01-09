@@ -34,5 +34,38 @@ namespace UserWs.code
                 return false;
             }
         }
+
+        public bool isUserExist(string Username, ref string errorStr)
+        {
+            string qStr = string.Empty;
+            try
+            {
+                qStr = " Select count(*) as IsUserExist \n" +
+                        " From UserMst \n" +
+                        " Where nUsername = '" + Username.ToString() +"'";
+
+                using(SqlConnection conn = new SqlConnection(ConnSrt))
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    SqlDataReader dataReader ;
+
+                    cmd.CommandText = qStr;
+                    cmd.Connection = conn;
+                    conn.Open();
+                    dataReader = cmd.ExecuteReader();
+
+                    if (dataReader.Read() && Convert.ToInt32(dataReader["IsUserExist"]) <= 0)
+                    {
+                        throw new Exception("User not exist");
+                    }                    
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                errorStr += ex.Message;
+                return false;
+            }
+        }
     }
 }

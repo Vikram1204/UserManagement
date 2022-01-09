@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UserManagement.Models;
 
 namespace UserManagement
 {
@@ -11,7 +12,10 @@ namespace UserManagement
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session[CommonClass.UserId] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

@@ -20,14 +20,19 @@ namespace UserWs
 
         [WebMethod]
         public bool Login(string Username, string Password, ref DataSet dsUser, ref string errorStr)
-        {
+        {            
             try
             {
+                code.CheckAuthentication checkAuth = new code.CheckAuthentication();
+                if (!checkAuth.login(Username, Password, ref dsUser, ref errorStr))
+                {
+                    throw new Exception(errorStr);
+                }
                 return true;
             }
             catch (Exception ex)
             {
-                errorStr = errorStr + "\n" + ex.Message;
+                errorStr =  ex.Message;
                 return false;
             }
         }

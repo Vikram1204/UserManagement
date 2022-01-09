@@ -24,9 +24,12 @@
                    <div class="mb-3">
                        <asp:Label ID="lblPassword" Text="Password" runat="server" CssClass="form-label" />
                        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" CssClass="form-control" /> 
-                   </div>
+                   </div>                   
                    <div class="mb-3 text-center">
-                       <asp:Button runat="server" CssClass="btn btn-primary" Text="Login" />
+                       <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-primary" Text="Login" OnClick="btnLogin_Click"  />
+                   </div>
+                   <div class="mb-3">
+                       <asp:Label ID="lblError" runat="server" CssClass="bg-danger text-white" />
                    </div>
                </div>
            </div>       
