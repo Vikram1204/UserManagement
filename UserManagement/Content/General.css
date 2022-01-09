@@ -1,6 +1,29 @@
 ﻿body {
+   overflow-x:hidden;
 }
 
 .CustHeader {
-    background-color: aqua
+    background-color:lightgray
+    
+}
+
+.CustFooter {
+    background-color: lightgray;
+}
+.borderSolid{    
+    border:2px solid;
+    border-color:forestgreen;
+}
+.containerWelcome{
+    margin-top:100px;
+    margin-bottom:100px;
+    margin-left:auto;
+    margin-right:auto;
+    height:100px;
+    line-height:100px;
+    background-color:whitesmoke;
+    border: groove;
+    border-radius:20%;
+    font-size:xx-large;
+    font-weight:bold;
 }
